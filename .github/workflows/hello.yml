@@ -12,4 +12,5 @@ jobs:
               run: |
                 echo "Im leaning GitHub Actions"
                 echo "I want to be a DevOps Engineer"
-                echo " This workflow works perfectly"
+                echo "This workflow works perfectly"
+                echo "Final test"
