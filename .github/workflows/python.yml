@@ -16,9 +16,11 @@ jobs:
           with:
             python-version: "3.11"
 
+        - name: Debug files
+          run: ls -R
+
         - name: Run Python script
           run: python main.py
 
-        - name: Debug files
-          run: ls -R
+        
          
