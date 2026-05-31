@@ -11,4 +11,4 @@ jobs:
         - name: Call GitHub API
           run: |
             curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            https://api.github.com/repos/Grego/github-actions-learning
+            https://api.github.com/repos/greeg75/github-actions-learning
