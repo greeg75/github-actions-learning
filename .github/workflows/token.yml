@@ -1,0 +1,14 @@
+name: GitHub Token Demo
+
+on:
+    push:
+
+jobs:
+    api-call:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Call GitHub API
+          run: |
+            curl -H "Autorization: token $"{{secrets.GITHUB_TOKEN}}" \
+            https://api.github.com/repos/Grego/github-actions-learning
