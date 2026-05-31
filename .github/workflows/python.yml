@@ -21,6 +21,15 @@ jobs:
 
         - name: Run test
           run: pytest
+    
+    build:
+        needs: test-python
+
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Build simulation
+          run: echo "Application build successful"
 
         
          
