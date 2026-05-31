@@ -24,12 +24,22 @@ jobs:
     
     build:
         needs: test-python
-
         runs-on: ubuntu-latest
 
         steps:
-        - name: Build simulation
-          run: echo "Application build successful"
+        - name: Checkout repository    
+          uses: actions/checkout@v4
+
+        - name: Create build file
+          run: |
+            mkdir dist
+            echo "My application build - v1.0" > dist/build.txt
+
+        - name: Upload artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: my-build
+            path: dist/ 
 
         
          
