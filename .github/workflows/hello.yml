@@ -9,4 +9,7 @@ jobs:
 
         steps:
             - name: Afficher un message
-              run : echo "Hello world from GitHub Actions"
+              run: |
+                echo "Im leaning GitHub Actions"
+                echo "I want to be a DevOps Engineer"
+                echo " This workflow works perfectly"
