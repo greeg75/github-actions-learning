@@ -4,6 +4,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip install pytest
+RUN pip install fastapi uvicorn pytest
 
-CMD ["pytest"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
