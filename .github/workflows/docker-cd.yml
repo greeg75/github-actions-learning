@@ -17,14 +17,14 @@ jobs:
 
         - name: Run tests (CI)
           run: |
-            docker build -t my-python-app .
-            docker run my-python-app
+            docker build -t my-image .
+            docker run my-image
 
         - name: Log in to Github Container Registry
           run : echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
         - name: Build Docker Image
-          run: docker build -t ghcr.io/${{ github.repository }}/my-python-app:latest .
+          run: docker build -t ghcr.io/${{ github.repository }}/my-image:latest .
 
         - name: Push Docker Image
-          run: docker push ghcr.io/${{ github.repository }}/my-python-app:latest
+          run: docker push ghcr.io/${{ github.repository }}/my-image:latest
