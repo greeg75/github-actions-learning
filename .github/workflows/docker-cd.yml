@@ -43,4 +43,4 @@ jobs:
 
                   docker run -d -p 8000:8000 --name my-app ghcr.io/${{ github.repository }}/my-image:latest
 
-                  EOF
+              EOF
