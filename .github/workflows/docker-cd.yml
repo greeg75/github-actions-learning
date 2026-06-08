@@ -34,7 +34,7 @@ jobs:
               echo "${{ secrets.EC2_SSH_KEY }}" > key.pem
               chmod 600 key.pem
 
-              ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.EC2_USER }}@{{ secrets.EC2_HOST }} << 'EOF'
+              ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
 
                   docker pull ghcr.io/${{ github.repository }}/my-image:latest
 
