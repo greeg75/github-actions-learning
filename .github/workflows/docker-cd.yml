@@ -28,3 +28,19 @@ jobs:
 
         - name: Push Docker Image
           run: docker push ghcr.io/${{ github.repository }}/my-image:latest
+        
+        - name: Deploy to EC2
+          run: |
+              echo "${{ secrets.EC2_SSH_KEY }}" > key.pem
+              chmod 600 key.pem
+
+              ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.EC2_USER }}@{{ secrets.EC2_HOST }} << 'EOF'
+
+                  docker pull ghcr.io/${{ github.repository }}/my-image:latest
+
+                  docker stop myapp ||true
+                  docker rm myapp ||true
+
+                  docker run -d -p 8000:8000 --name my-app ghcr.io/${{ github.repository }}/my-image:latest
+
+                  EOF
